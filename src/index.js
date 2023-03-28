@@ -9,8 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     .then((response) => response.json())
     .then((data) => {
         renderRamen(data);
+        
+        // sets detail-image to the first ramen
+        renderRamenDetails(data[0]);
     });
 
+    // function that takes in array of objects and loops through each object
     function renderRamen(ramens) {
         ramens.forEach((ramen) => {
 
@@ -24,25 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
             ramenImg.addEventListener('click', () => {
 
                 console.log(`${ramen.name} was clicked`);
-
-                let detailImage = document.querySelector('#ramen-detail .detail-image');
-                detailImage.src = ramen.image;
-
-                let name = document.querySelector('#ramen-detail .name');
-                name.textContent = ramen.name;
-
-                let restaurant = document.querySelector('#ramen-detail .restaurant');
-                restaurant.textContent = ramen.restaurant;
-
-                let rating = document.getElementById('rating-display');
-                rating.textContent = ramen.rating;
-
-                let comment = document.getElementById('comment-display');
-                comment.textContent = ramen.comment;
+                renderRamenDetails(ramen);
 
             });
         });
-    };
+
+    }; // this is where renderRamen function ends
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -66,5 +57,22 @@ document.addEventListener('DOMContentLoaded', () => {
         e.target['new-comment'].value = '';
 
     });
+
+    function renderRamenDetails(ramenObj) {
+        let detailImage = document.querySelector('#ramen-detail .detail-image');
+        detailImage.src = ramenObj.image;
+
+        let name = document.querySelector('#ramen-detail .name');
+        name.textContent = ramenObj.name;
+
+        let restaurant = document.querySelector('#ramen-detail .restaurant');
+        restaurant.textContent = ramenObj.restaurant;
+
+        let rating = document.getElementById('rating-display');
+        rating.textContent = ramenObj.rating;
+
+        let comment = document.getElementById('comment-display');
+        comment.textContent = ramenObj.comment;
+    };
 });
     
