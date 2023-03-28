@@ -3,6 +3,7 @@
 let ramenMenu = document.getElementById('ramen-menu');
 let ramenDetail = document.getElementById('ramen-detail');
 let form = document.getElementById('new-ramen');
+let updateForm = document.getElementById('edit-ramen');
 
 document.addEventListener('DOMContentLoaded', () => {
     fetch('http://localhost:3000/ramens')
@@ -53,6 +54,22 @@ document.addEventListener('DOMContentLoaded', () => {
         e.target.name.value = '';
         e.target.restaurant.value = '';
         e.target.image.value = '';
+        e.target.rating.value = '';
+        e.target['new-comment'].value = '';
+
+    });
+
+    updateForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        console.log('i want to be updated');
+
+        let ratingOfCurrentRamen = document.getElementById('rating-display');
+        let commentOfCurrentRamen = document.getElementById('comment-display');
+
+        ratingOfCurrentRamen.textContent = e.target.rating.value;
+        commentOfCurrentRamen.textContent = e.target['new-comment'].value;
+
+        //reset the inputs
         e.target.rating.value = '';
         e.target['new-comment'].value = '';
 
