@@ -39,6 +39,22 @@
       "image": "./assets/ramen/kojiro.jpg",
       "rating": 6,
       "comment": "Perfect for a cold night."
+    },
+    {
+      "name": "Blue Cartoon Ramen",
+      "restaurant": "The Cartoon Shoppe",
+      "image": "https://static.vecteezy.com/system/resources/previews/004/532/073/original/ramen-noodle-egg-and-meat-with-chopstick-cartoon-icon-illustration-vector.jpg",
+      "rating": "4",
+      "comment": "but i like blue!",
+      "id": 6
+    },
+    {
+      "name": "Purple Cartoon Ramen",
+      "restaurant": "Cartoon Palace",
+      "image": "https://img.freepik.com/premium-vector/cute-ramen-noodle-cartoon-icon-illustration_138676-2580.jpg?w=2000",
+      "rating": "4",
+      "comment": "Smiles only get you so far",
+      "id": 7
     }
   ]
 }
